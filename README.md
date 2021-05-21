@@ -1,26 +1,12 @@
-# HomeId (homeid)
+# Project Test #
 
-A Quasar Framework app
+### How do I get set up?
 
-## Install the dependencies
-```bash
-yarn
-```
+* Install [quasar cli](https://quasar.dev/quasar-cli/installation) to run this project
+* Clone this repo
+* Run `npm i`
+* Run project `quasar dev`
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
-```bash
-quasar dev
-```
+### Who do I talk to? ###
 
-### Lint the files
-```bash
-yarn run lint
-```
-
-### Build the app for production
-```bash
-quasar build
-```
-
-### Customize the configuration
-See [Configuring quasar.conf.js](https://v1.quasar.dev/quasar-cli/quasar-conf-js).
+* Mervin Villaceran
