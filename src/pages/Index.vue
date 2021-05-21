@@ -1,5 +1,5 @@
 <template>
-  <q-page class="q-pa-xl">
+  <q-page :class="$q.screen.gt.sm ? 'q-pa-xl' : 'q-pa-lg'">
       <div class="row full-width">
           <div class="col-grow">
               <div class="text-h5 text-weight-medium">

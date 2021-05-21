@@ -1,8 +1,15 @@
 <template>
-  <q-toolbar class="toolbar">
-    <q-toolbar-title>
-        <div class="row content-center">
-            <q-btn flat dense icon="fas fa-search" class="button q-mr-sm"/>
+  <q-toolbar class="toolbar" :class="$q.screen.gt.sm ? 'q-pl-xl q-pr-lg' : ''">
+    <q-toolbar-title >
+        <div v-if="$q.screen.lt.sm">
+            <q-img
+            src="~assets/logo.png"
+            spinner-color="white"
+            style="width: 120px"
+            />
+        </div>
+        <div class="row content-center" v-if="$q.screen.sm || $q.screen.gt.sm">
+            <q-btn flat dense icon="fas fa-search" class="text-grey-5 q-mr-sm"/>
             <q-input :dense="true" borderless placeholder="Search for..."/>
         </div>
     </q-toolbar-title>
@@ -10,7 +17,7 @@
         <div class="row q-mr-lg user-info">
             <q-img src="~assets/user.jpg" class="user q-mr-xs"/>
             <div class="self-center">
-                <q-btn-dropdown label="Mervin Villaceran" dropdown-icon="fas fa-angle-down" flat no-icon-animation>
+                <q-btn-dropdown :label="($q.screen.gt.sm) ? 'Mervin Villaceran' : ''" dropdown-icon="fas fa-angle-down" flat no-icon-animation>
                     <q-list>
                         <q-item clickable v-close-popup>
                         <q-item-section>
@@ -28,11 +35,11 @@
             </div>
         </div>
         <div class="self-center">
-            <q-icon name="fas fa-bell" class="notification-icon">
+            <q-icon name="far fa-bell" class="notification-icon">
                 <q-badge color="cyan" floating rounded class="badge">1</q-badge>
             </q-icon>
         </div>
-        <q-btn flat dense icon="las la-bars" class="gt-sm-hidden" v-if="$q.screen.lt.md" @click="onClick" />
+        <q-btn flat dense icon="las la-bars" class="gt-sm-hidden q-pl-md" v-if="$q.screen.lt.md" @click="onClick" />
     </div>
   </q-toolbar>
 </template>

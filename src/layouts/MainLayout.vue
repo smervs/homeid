@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf" class="layout-header">
-    <q-header elevated class="header text-black">
+    <q-header elevated class="header text-black bg-white">
       <NavToolbar :onClick="openDrawer"/>
     </q-header>
 
