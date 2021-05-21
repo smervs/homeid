@@ -1,18 +1,11 @@
 <template>
   <q-layout view="lHh Lpr lFf" class="layout-header">
     <q-header elevated class="header text-black">
-      <q-toolbar class="toolbar">
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
-      </q-toolbar>
+      <NavToolbar :onClick="openDrawer"/>
     </q-header>
 
     <q-drawer
       v-model="leftDrawerOpen"
-      show-if-above
       class="drawer"
       content-class="bg-white"
     >
@@ -48,6 +41,7 @@
 
 <script>
 import NavGroup from 'src/components/NavGroup.vue'
+import NavToolbar from 'src/components/NavToolbar.vue'
 
 const linksData = [
   {
@@ -110,12 +104,17 @@ const linksData = [
 
 export default {
   name: 'MainLayout',
-  components: { NavGroup },
+  components: { NavGroup, NavToolbar },
   data () {
     return {
-      leftDrawerOpen: false,
+      leftDrawerOpen: true,
       drawerList: linksData
     }
+  },
+  methods: {
+      openDrawer() {
+          this.leftDrawerOpen = !this.leftDrawerOpen;
+      }
   }
 }
 </script>
