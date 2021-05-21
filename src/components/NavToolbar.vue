@@ -10,7 +10,7 @@
         <div class="row q-mr-lg user-info">
             <q-img src="~assets/user.jpg" class="user q-mr-xs"/>
             <div class="self-center">
-                <q-btn-dropdown label="Mervin Villaceran"  dropdown-icon="las la-angle-down" flat>
+                <q-btn-dropdown label="Mervin Villaceran" dropdown-icon="fas fa-angle-down" flat no-icon-animation>
                     <q-list>
                         <q-item clickable v-close-popup>
                         <q-item-section>
