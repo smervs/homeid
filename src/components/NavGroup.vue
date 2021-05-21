@@ -1,8 +1,8 @@
 <template>
-  <q-list>
+  <q-list class="list">
     <q-item-label
         header
-        class="text-grey-8"
+        class="text-grey-6"
     >
         {{ header }}
     </q-item-label>
@@ -26,8 +26,8 @@ export default {
     },
 
     links: {
-      type: [],
-      default: []
+      type: Array,
+      default: () => []
     },
   },
   components: {

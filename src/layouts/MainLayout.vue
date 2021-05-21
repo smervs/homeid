@@ -16,7 +16,7 @@
       class="drawer"
       content-class="bg-white"
     >
-      <q-list>
+      <q-list class="list">
         <q-item-label
           header
           class="text-grey-8"
@@ -27,9 +27,15 @@
             class="logo"
             />
         </q-item-label>
+      </q-list>
+      <q-list
+        v-for="(nav, index) in drawerList"
+        :key="nav.header"
+      >
+        <hr class="list-hr" v-if="index !== 0">
         <NavGroup
-            header="Main"
-          :links="essentialLinks"
+            :header="nav.header"
+            :links="nav.links"
         />
       </q-list>
     </q-drawer>
@@ -45,47 +51,61 @@ import NavGroup from 'src/components/NavGroup.vue'
 
 const linksData = [
   {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
+    header: 'MAIN',
+    links: [
+        {
+            title: 'Dashboard',
+            icon: 'las la-cog',
+        }
+    ]
   },
   {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
+    header: 'MANAGE LISTINGS',
+    links: [
+        {
+            title: 'Add New',
+            icon: 'las la-home',
+        },
+        {
+            title: 'My Properties',
+            icon: 'las la-house-damage',
+        },
+        {
+            title: 'My Favorites',
+            icon: 'lar la-heart',
+        },
+        {
+            title: 'Save Search',
+            icon: 'las la-warehouse',
+        },
+        {
+            title: 'Reviews',
+            icon: 'las la-comment-dots',
+        },
+        {
+            title: 'Invoice',
+            icon: 'las la-file-invoice',
+        }
+    ]
   },
   {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
+    header: 'MANAGE ACCOUNT',
+    links: [
+        {
+            title: 'My Package',
+            icon: 'las la-box',
+            isActive: true,
+        },
+        {
+            title: 'My Profile',
+            icon: 'las la-user-alt',
+        },
+        {
+            title: 'Logout',
+            icon: 'las la-sign-out-alt',
+        }
+    ]
   },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
-  }
 ];
 
 export default {
@@ -94,7 +114,7 @@ export default {
   data () {
     return {
       leftDrawerOpen: false,
-      essentialLinks: linksData
+      drawerList: linksData
     }
   }
 }
